@@ -1,0 +1,63 @@
+<ion-content class="login-page">
+  <div class="login-container">
+
+    <div class="logo">🐾</div>
+
+    <h1>Pet Amigo</h1>
+
+    <p class="subtitulo">
+      Seu melhor amigo merece o melhor cuidado.
+    </p>
+
+    <form (ngSubmit)="entrar()">
+
+      <ion-item>
+        <ion-input
+          label="E-mail"
+          labelPlacement="floating"
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+          label="Senha"
+          labelPlacement="floating"
+          type="password"
+          name="senha"
+          [(ngModel)]="senha"
+          required>
+        </ion-input>
+      </ion-item>
+
+      <p class="erro" *ngIf="erro">
+        {{ erro }}
+      </p>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="carregando">
+        Entrar
+      </ion-button>
+
+    </form>
+
+    <ion-button
+      expand="block"
+      fill="outline"
+      (click)="entrarComGoogle()"
+      [disabled]="carregando">
+      Entrar com Google
+    </ion-button>
+
+    <p class="cadastro">
+      Ainda não tem conta?
+      <a routerLink="/cadastro">Cadastre-se</a>
+    </p>
+
+  </div>
+</ion-content>

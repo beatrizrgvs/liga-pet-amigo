@@ -1,0 +1,36 @@
+﻿<ion-content [fullscreen]="true" class="pagina-home">
+  <header class="topo">
+    <strong>🐾 Pet Amigo</strong>
+    <button type="button" (click)="sair()">Sair</button>
+  </header>
+
+  <main class="conteudo">
+    <section class="painel">
+     <h1 class="titulo-home">
+  HOME DO PET AMIGO FUNCIONANDO!
+</h1>
+      <h2>Escolha os serviços</h2>
+      <p class="rotulo">Porte do pet</p>
+
+      <div class="portes">
+        <button *ngFor="let p of ['P', 'M', 'G']"
+          [class.selecionado]="porte === p"
+          (click)="porte = p">{{ p }}</button>
+      </div>
+
+      <div class="lista-servicos">
+        <article class="servico" *ngFor="let s of servicosVisiveis">
+          <div>
+            <strong>{{ s.nome }}</strong>
+            <p *ngIf="s.status" class="status">{{ s.status }}</p>
+          </div>
+          <div class="preco">
+            <strong>R$ {{ s.preco }},00</strong>
+            <button *ngIf="!s.status" (click)="agendar(s.nome)">Agendar</button>
+            <span *ngIf="s.status">Indisponível</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</ion-content>

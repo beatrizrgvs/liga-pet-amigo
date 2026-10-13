@@ -1,0 +1,73 @@
+<ion-content [fullscreen]="true" class="cadastro-page">
+  <div class="cadastro-container">
+    <div class="cadastro-card">
+      <div class="logo">🐾</div>
+      <h1>Pet Amigo</h1>
+      <p class="subtitulo">
+        Crie sua conta para cuidar do seu pet!
+      </p>
+      <form (ngSubmit)="cadastrar()">
+        <ion-item>
+          <ion-label position="stacked">
+            Nome completo
+          </ion-label>
+
+          <ion-input
+            type="text"
+            name="nome"
+            [(ngModel)]="nome"
+            placeholder="Digite seu nome"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">
+            E-mail
+          </ion-label>
+
+          <ion-input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            placeholder="Digite seu e-mail"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">
+            Senha
+          </ion-label>
+
+          <ion-input
+            type="password"
+            name="senha"
+            [(ngModel)]="senha"
+            placeholder="Crie uma senha"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger" *ngIf="erro">
+          <p class="mensagem-erro">
+            {{ erro }}
+          </p>
+        </ion-text>
+
+        <ion-button
+          type="submit"
+          expand="block"
+          [disabled]="carregando">
+
+          {{ carregando ? 'Criando conta...' : 'Criar conta' }}
+
+        </ion-button>
+      </form>
+      <p class="texto-login">
+        Já tem uma conta?
+        <a routerLink="/login">Entrar</a>
+      </p>
+    </div>
+  </div>
+</ion-content>
