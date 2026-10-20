@@ -35,4 +35,8 @@ export class HomePage {
   agendar(nome: string) {
     alert('Serviço selecionado: ' + nome + ' — porte ' + this.porte);
   }
+
+  abrirPetVirtual() {
+  this.router.navigateByUrl('/pet-virtual');
+}
 }

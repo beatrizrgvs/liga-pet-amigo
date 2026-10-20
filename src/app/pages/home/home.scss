@@ -1,4 +1,5 @@
-﻿:host {
+﻿
+:host {
   display: block;
   height: 100%;
 }
@@ -7,22 +8,86 @@
   --background: #e7edf5;
 }
 
+/* CABEÇALHO */
 .topo {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 18px 22px;
-  color: #12365a;
-  font-size: 21px;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  min-height: 60px;
+  box-sizing: border-box;
+  background: #96c2f5;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(50, 30, 100, 0.15);
 }
 
-.topo button {
-  border: 0;
-  background: transparent;
-  color: #526d89;
+.logo {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.acoes-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* TAMANHO IGUAL PARA OS DOIS BOTÕES */
+.topo button.atalho-pet,
+.topo button.botao-sair {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: auto;
+  height: 38px;
+  min-height: 38px;
+  margin: 0;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
 }
 
+.topo button.atalho-pet {
+  background: #ffffff;
+  color: #3978bd;
+  border: 1px solid #ffffff;
+  box-shadow: 0 2px 5px rgba(30, 20, 70, 0.12);
+}
+
+.topo button.botao-sair {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.topo .icone-pet {
+  font-size: 17px;
+}
+
+.topo .seta {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.topo button.atalho-pet:hover {
+  background: #f0f7ff;
+}
+
+.topo button.botao-sair:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* CONTEÚDO */
 .conteudo {
   max-width: 440px;
   margin: 12px auto;
@@ -30,10 +95,15 @@
 }
 
 .painel {
-  background: white;
+  background: #ffffff;
   border-radius: 28px;
   padding: 24px 18px;
   box-shadow: 0 8px 28px #19395715;
+}
+
+.titulo-home {
+  color: #12365a;
+  font-size: 20px;
 }
 
 h2 {
@@ -45,6 +115,7 @@ h2 {
   color: #526d89;
 }
 
+/* PORTE DO PET */
 .portes {
   display: flex;
   gap: 10px;
@@ -63,9 +134,10 @@ h2 {
 
 .portes button.selecionado {
   background: #087f78;
-  color: white;
+  color: #ffffff;
 }
 
+/* SERVIÇOS */
 .lista-servicos {
   display: grid;
   gap: 12px;
@@ -109,11 +181,33 @@ h2 {
   border-radius: 10px;
   padding: 8px 10px;
   background: #0788c9;
-  color: white;
+  color: #ffffff;
   font-weight: bold;
 }
 
 .preco span {
   font-size: 11px;
   color: #b42323;
+}
+
+/* TELAS PEQUENAS */
+@media (max-width: 380px) {
+  .topo {
+    padding: 8px;
+    gap: 5px;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .acoes-topo {
+    gap: 5px;
+  }
+
+  .topo button.atalho-pet,
+  .topo button.botao-sair {
+    padding: 0 7px;
+    font-size: 12px;
+  }
 }

@@ -1,0 +1,89 @@
+ion-content {
+  --background: #f0f9ff;
+}
+
+h2 {
+  color: #075985;
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+}
+
+.animais {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.animal-opcao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 4px;
+  border: 2px solid #dbeafe;
+  border-radius: 14px;
+  background: white;
+  color: #334155;
+}
+
+.animal-opcao span {
+  font-size: 2rem;
+}
+
+.animal-opcao small {
+  font-size: 0.75rem;
+}
+
+.animal-opcao.selecionado {
+  border-color: #0284c7;
+  background: #e0f2fe;
+}
+
+.pet-card {
+  margin: 20px 0;
+  border-radius: 18px;
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+}
+
+.pet {
+  text-align: center;
+  font-size: 5rem;
+  padding: 12px 0;
+}
+
+.mensagem {
+  text-align: center;
+  color: #075985;
+  background: #e0f2fe;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  margin: 16px 0;
+}
+
+.indicador {
+  margin: 18px 0;
+}
+
+.indicador-titulo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 7px;
+  color: #334155;
+}
+
+.indicador small {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+}
+
+ion-progress-bar {
+  height: 9px;
+  border-radius: 99px;
+}
+
+ion-button {
+  margin-top: 12px;
+  --border-radius: 12px;
+}

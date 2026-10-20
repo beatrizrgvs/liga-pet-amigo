@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>🐾 Pet Amigo — Pet Virtual</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Escolha seu animal</h2>
+
+  <div class="animais">
+    <button
+      type="button"
+      *ngFor="let animal of animais"
+      class="animal-opcao"
+      [class.selecionado]="animal.tipo === animalSelecionado.tipo"
+      (click)="selecionarAnimal(animal)"
+    >
+      <span>{{ animal.emoji }}</span>
+      <small>{{ animal.tipo }}</small>
+    </button>
+  </div>
+
+  <ion-card class="pet-card">
+    <ion-card-header>
+      <ion-card-title>Meu pet</ion-card-title>
+      <ion-card-subtitle>
+        {{ animalSelecionado.tipo }}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="pet">{{ animalSelecionado.emoji }}</div>
+
+      <ion-item>
+        <ion-label position="stacked">Nome do pet</ion-label>
+
+<ion-input
+  [value]="nomePet"
+  (ionInput)="nomePet = $event.detail.value ?? ''"
+  placeholder="Digite o nome"
+  maxlength="30"
+></ion-input>
+
+      </ion-item>
+
+      <p class="mensagem">{{ mensagem }}</p>
+
+      <div class="indicador">
+        <div class="indicador-titulo">
+          <strong>Fome</strong>
+          <span>{{ fome }}%</span>
+        </div>
+        <ion-progress-bar
+          color="primary"
+          [value]="fome / 100"
+        ></ion-progress-bar>
+        <small>Quanto maior, mais fome seu pet sente.</small>
+      </div>
+
+      <div class="indicador">
+        <div class="indicador-titulo">
+          <strong>Humor</strong>
+          <span>{{ humor }}%</span>
+        </div>
+        <ion-progress-bar
+          color="warning"
+          [value]="humor / 100"
+        ></ion-progress-bar>
+      </div>
+
+      <div class="indicador">
+        <div class="indicador-titulo">
+          <strong>Limpeza</strong>
+          <span>{{ limpeza }}%</span>
+        </div>
+        <ion-progress-bar
+          color="success"
+          [value]="limpeza / 100"
+        ></ion-progress-bar>
+      </div>
+
+      <ion-button expand="block" (click)="alimentar()">
+        🍎 Alimentar
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        (click)="brincar()"
+      >
+        🎾 Brincar
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        fill="outline"
+        (click)="darBanho()"
+      >
+        🛁 Dar banho
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

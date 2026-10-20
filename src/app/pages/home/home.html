@@ -1,8 +1,30 @@
 ﻿<ion-content [fullscreen]="true" class="pagina-home">
-  <header class="topo">
-    <strong>🐾 Pet Amigo</strong>
-    <button type="button" (click)="sair()">Sair</button>
-  </header>
+
+<header class="topo">
+  <strong class="logo">🐾 Pet Amigo</strong>
+
+  <div class="acoes-topo">
+    <button
+      type="button"
+      class="atalho-pet"
+      (click)="abrirPetVirtual()"
+      title="Meu Pet Virtual"
+    >
+      <span class="icone-pet">🐾</span>
+      <span class="texto-pet">Meu Pet</span>
+    </button>
+
+    <button
+      type="button"
+      class="botao-sair"
+      (click)="sair()"
+    >
+      <span>Sair</span>
+      <span class="seta">›</span>
+    </button>
+  </div>
+</header>
+
 
   <main class="conteudo">
     <section class="painel">
