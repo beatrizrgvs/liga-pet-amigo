@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "241606114584",
+    "project_id": "pet-amigo-e0284",
+    "storage_bucket": "pet-amigo-e0284.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241606114584:android:eb53fb2c6294946bf9f26d",
+        "android_client_info": {
+          "package_name": "com.ligapetamigo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241606114584-3jbm5goueqckb4oeg9upd7dg9lac8bfn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ligapetamigo.app",
+            "certificate_hash": "32d0ad684cf6972caac79423fed9e6937edfa403"
+          }
+        },
+        {
+          "client_id": "241606114584-9i4gaqsrfhrc37ejnpjdilm7bb41d2mr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjOaJpv-a9fmUbNwAh5o9Xc6ZBlwJ78no"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241606114584-9i4gaqsrfhrc37ejnpjdilm7bb41d2mr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
