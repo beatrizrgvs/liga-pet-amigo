@@ -1,13 +1,33 @@
-ion-content {
-  --background: #f0f9ff;
+
+:host {
+  display: block;
+  height: 100%;
 }
 
+/* FUNDO */
+ion-content {
+  --background: #e7edf5;
+}
+
+/* CABEÇALHO */
+ion-header {
+  box-shadow: 0 3px 10px rgba(50, 30, 100, 0.15);
+}
+
+ion-toolbar {
+  --background: #4999c1;
+  --color: #ffffff;
+}
+
+/* TÍTULOS */
 h2 {
-  color: #075985;
+  color: #12365a;
   font-size: 1.15rem;
+  font-weight: 700;
   margin-bottom: 14px;
 }
 
+/* ESCOLHA DOS ANIMAIS */
 .animais {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -20,10 +40,10 @@ h2 {
   align-items: center;
   gap: 6px;
   padding: 12px 4px;
-  border: 2px solid #dbeafe;
+  border: 2px solid #e0e8f1;
   border-radius: 14px;
-  background: white;
-  color: #334155;
+  background: #ffffff;
+  color: #12365a;
 }
 
 .animal-opcao span {
@@ -35,14 +55,25 @@ h2 {
 }
 
 .animal-opcao.selecionado {
-  border-color: #0284c7;
-  background: #e0f2fe;
+  border-color: #4999c1;
+  background: #edf5fc;
 }
 
+/* CARTÃO DO PET */
 .pet-card {
   margin: 20px 0;
   border-radius: 18px;
-  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+  box-shadow: 0 8px 28px #19395715;
+}
+
+ion-card-title {
+  color: #12365a;
+  font-weight: 800;
+}
+
+ion-card-subtitle {
+  color: #526d89;
 }
 
 .pet {
@@ -51,16 +82,18 @@ h2 {
   padding: 12px 0;
 }
 
+/* MENSAGEM */
 .mensagem {
   text-align: center;
-  color: #075985;
-  background: #e0f2fe;
+  color: #12365a;
+  background: #edf2f8;
   border-radius: 10px;
   padding: 12px;
   font-weight: 600;
   margin: 16px 0;
 }
 
+/* INDICADORES */
 .indicador {
   margin: 18px 0;
 }
@@ -69,21 +102,95 @@ h2 {
   display: flex;
   justify-content: space-between;
   margin-bottom: 7px;
-  color: #334155;
+  color: #12365a;
 }
 
 .indicador small {
   display: block;
   margin-top: 6px;
-  color: #64748b;
+  color: #526d89;
 }
 
 ion-progress-bar {
   height: 9px;
   border-radius: 99px;
+  --progress-background: #087f78;
+  --background: #edf2f8;
 }
 
+/* BOTÕES DE CUIDADO */
 ion-button {
   margin-top: 12px;
   --border-radius: 12px;
+  --background: #4999c1;
+  --background-hover: #3978bd;
+  --color: #ffffff;
+}
+
+ion-button[fill="outline"] {
+  --background: transparent;
+  --color: #3978bd;
+  --border-color: #4999c1;
+}
+
+/* BOTÃO VOLTAR */
+.botao-voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #3978bd;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.botao-voltar:active {
+  background: #f0f7ff;
+}
+
+.botao-voltar .seta {
+  font-size: 18px;
+  line-height: 13px;
+  position: relative;
+  top: -2.5px;
+}
+
+/* CABEÇALHO INTERNO, SE UTILIZADO */
+.cabecalho-pet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 12px;
+}
+
+.cabecalho-pet ion-title {
+  position: static;
+  flex: 1;
+  text-align: right;
+  font-size: 18px;
+}
+.toolbar-pet {
+  --background: #4999c1;
+  --color: #fff;
+}
+
+.cabecalho-pet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  width: 100%;
+}
+
+.logo {
+  color: #fff;
+  font-size: 19.5px;
+  font-weight: bold;
 }

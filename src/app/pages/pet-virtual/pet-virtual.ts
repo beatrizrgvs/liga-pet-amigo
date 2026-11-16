@@ -17,7 +17,9 @@ import {
   IonCardContent,
   IonItem,
   IonLabel,
-  IonProgressBar
+  IonProgressBar,
+  IonButtons,
+  IonIcon
 } from '@ionic/angular';
 
 interface Animal {
@@ -39,23 +41,25 @@ interface DadosPet {
   selector: 'app-pet-virtual',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    IonContent,
-    IonButton,
-    IonHeader,
-    IonToolbar,
-    IonInput,
-    IonTitle,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    IonItem,
-    IonLabel,
-    IonProgressBar
-  ],
+  CommonModule,
+  FormsModule,
+  IonContent,
+  IonButton,
+  IonHeader,
+  IonToolbar,
+  IonInput,
+  IonTitle,
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonItem,
+  IonLabel,
+  IonProgressBar,
+  IonButtons,
+  IonIcon
+],
   templateUrl: './pet-virtual.html',
   styleUrl: './pet-virtual.scss'
 })
@@ -219,4 +223,8 @@ export class PetVirtualPage {
         `${this.nomePet} está recebendo seus cuidados.`;
     }
   }
+
+  voltarHome(): void {
+  window.location.href = '/home';
+}
 }
