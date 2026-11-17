@@ -1,0 +1,26 @@
+<ion-content class="pagina-admin">
+    <header class="topo">
+      <strong>🐾 Painel do Administrador</strong>
+      <button type="button" (click)="sair()">Sair</button>
+    </header>
+  
+    <main class="conteudo">
+      <h2>Estoque de serviços</h2>
+  
+      <p class="mensagem" *ngIf="mensagem">{{ mensagem }}</p>
+  
+      <article class="item" *ngFor="let s of servicos">
+        <div>
+          <strong>{{ s.nome }}</strong>
+          <p>R$ {{ s.preco }},00 · Portes: {{ s.portes.join(', ') }}</p>
+          <p class="status">Status: {{ s.status || 'Disponível' }}</p>
+        </div>
+  
+        <div class="acoes">
+          <button (click)="mudarStatus(s, '')">Liberar</button>
+          <button (click)="mudarStatus(s, 'Agenda cheia')">Agenda cheia</button>
+          <button (click)="mudarStatus(s, 'Esgotado')">Esgotado</button>
+        </div>
+      </article>
+    </main>
+  </ion-content>

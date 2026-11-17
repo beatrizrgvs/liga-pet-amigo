@@ -1,0 +1,143 @@
+:host {
+    display: block;
+    height: 100%;
+  }
+  
+  .pagina-admin {
+    --background: #e7edf5;
+  }
+  
+  /* CABEÇALHO */
+  .topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 14px;
+    min-height: 60px;
+    box-sizing: border-box;
+    background: #4999c1;
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(50, 30, 100, 0.15);
+  
+    strong {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+    }
+  
+    button {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+  
+      &:hover {
+        background: rgba(255, 255, 255, 0.28);
+      }
+    }
+  }
+  
+  /* CONTEÚDO */
+  .conteudo {
+    max-width: 600px;
+    margin: 12px auto;
+    padding: 0 14px 24px;
+  
+    h2 {
+      margin: 0 0 14px;
+      color: #12365a;
+    }
+  
+    > button {
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      background: #4999c1;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  
+  .mensagem {
+    background: #ffffff;
+    border-left: 4px solid #4999c1;
+    color: #12365a;
+    padding: 10px 14px;
+    border-radius: 10px;
+    margin-bottom: 14px;
+  }
+  
+  /* ITENS DO ESTOQUE */
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 16px 14px;
+    margin-bottom: 12px;
+    background: #ffffff;
+    border: 1px solid #e0e8f1;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px #19395715;
+  
+    strong {
+      color: #12365a;
+    }
+  
+    p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: #526d89;
+    }
+  
+    .status {
+      font-size: 12px;
+      font-weight: 700;
+      color: #a45b13;
+    }
+  }
+  
+  /* BOTÕES DE AÇÃO */
+  .acoes {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+  
+      &:nth-child(1) { background: #2e9e5b; }
+      &:nth-child(2) { background: #e0a100; }
+      &:nth-child(3) { background: #b42323; }
+  
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+  }
+  
+  @media (max-width: 380px) {
+    .topo {
+      padding: 8px;
+    }
+  
+    .topo strong {
+      font-size: 14px;
+    }
+  }

@@ -1,7 +1,7 @@
-
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {
   IonContent,
@@ -41,25 +41,25 @@ interface DadosPet {
   selector: 'app-pet-virtual',
   standalone: true,
   imports: [
-  CommonModule,
-  FormsModule,
-  IonContent,
-  IonButton,
-  IonHeader,
-  IonToolbar,
-  IonInput,
-  IonTitle,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
-  IonItem,
-  IonLabel,
-  IonProgressBar,
-  IonButtons,
-  IonIcon
-],
+    CommonModule,
+    FormsModule,
+    IonContent,
+    IonButton,
+    IonHeader,
+    IonToolbar,
+    IonInput,
+    IonTitle,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent,
+    IonItem,
+    IonLabel,
+    IonProgressBar,
+    IonButtons,
+    IonIcon
+  ],
   templateUrl: './pet-virtual.html',
   styleUrl: './pet-virtual.scss'
 })
@@ -86,7 +86,7 @@ export class PetVirtualPage {
 
   mensagem = 'Bolt está com fome!';
 
-  constructor() {
+  constructor(private router: Router) {
     this.carregarPet();
   }
 
@@ -185,27 +185,28 @@ export class PetVirtualPage {
   }
 
   brincar(): void {
-    if (this.fome >= 100) {
-      this.mensagem =
-        `${this.nomePet} precisa comer antes de brincar!`;
-      return;
+    // Se os dois indicadores estiverem completos,
+    // brincar diminui a limpeza.
+    if (this.humor === 100 && this.limpeza === 100) {
+      this.limpeza = 85;
+    } else {
+      this.humor = Math.min(100, this.humor + 25);
+      this.fome = Math.min(100, this.fome + 10);
+      this.limpeza = Math.max(0, this.limpeza - 15);
     }
-
-    this.humor = Math.min(100, this.humor + 25);
-    this.fome = Math.min(100, this.fome + 10);
 
     this.atualizarMensagem();
     this.salvarPet();
   }
 
   darBanho(): void {
-    if (this.limpeza === 100) {
-      this.mensagem = `${this.nomePet} já está limpinho!`;
-      return;
+    // Se os dois indicadores estiverem completos,
+    // dar banho diminui o humor.
+    if (this.humor === 100 && this.limpeza === 100) {
+      this.humor = 85;
+    } else {
+      this.limpeza = 100;
     }
-
-    this.limpeza = Math.min(100, this.limpeza + 40);
-    this.humor = Math.max(0, this.humor - 5);
 
     this.atualizarMensagem();
     this.salvarPet();
@@ -225,6 +226,6 @@ export class PetVirtualPage {
   }
 
   voltarHome(): void {
-  window.location.href = '/home';
-}
+    this.router.navigateByUrl('/home');
+  }
 }

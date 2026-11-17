@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ADMIN_UID } from '../../services/estoque';
+
 
 
 //import { AppHeaderComponent } from '../../components/app-header/app-header.component';
@@ -43,30 +45,31 @@ export class LoginPage {
   carregando = false;
 
   async entrar() {
-  this.erro = '';
-  this.carregando = true;
-
-  try {
-    await loginComEmail(this.email, this.senha);
-    await this.router.navigateByUrl('/home', { replaceUrl: true });
-  } catch (error) {
-    console.error(error);
-    this.erro = 'Não foi possível entrar. Confira seu e-mail e senha.';
-  } finally {
-    this.carregando = false;
+    this.erro = '';
+    this.carregando = true;
+  
+    try {
+      const cred = await loginComEmail(this.email, this.senha);
+      await this.router.navigateByUrl(
+        cred.user.uid === ADMIN_UID ? '/admin' : '/home',
+        { replaceUrl: true }
+      );
+    } catch (error) {
+      console.error('ERRO:', error);
+      this.erro = 'Não foi possível entrar. Confira seu e-mail e senha.';
+    } finally {
+      this.carregando = false;
+    }
   }
-}
 
   async entrarComGoogle() {
   this.erro = '';
   this.carregando = true;
 
   try {
-    await loginComGoogle();
-
-    await this.router.navigateByUrl('/home', {
-      replaceUrl: true
-    });
+    const cred = await loginComGoogle();
+    await this.router.navigateByUrl(cred.user.uid === ADMIN_UID ? '/admin' : '/home', { replaceUrl: true });
+  
   } catch (error: any) {
     console.error('Erro no login com Google:', error);
 

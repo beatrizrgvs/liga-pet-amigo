@@ -1,5 +1,4 @@
-﻿
-import { Routes } from '@angular/router';
+﻿import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
@@ -16,6 +15,11 @@ export const routes: Routes = [
     path: 'home',
     loadComponent: () =>
       import('./pages/home/home').then(m => m.HomePage)
+  },
+  {
+    path: 'admin',
+    loadComponent: () =>
+      import('./pages/admin/admin').then(m => m.AdminPage)
   },
   {
     path: 'pet-virtual',
